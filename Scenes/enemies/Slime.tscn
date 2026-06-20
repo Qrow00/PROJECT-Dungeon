@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca5pvp08vd8o6"]
+
+[ext_resource type="PackedScene" path="res://Scenes/enemies/EnemyBase.tscn" id="1_mtm1v"]
+
+[node name="Slime" instance=ExtResource("1_mtm1v")]
+walk_speed = 1.5
+run_speed = 3.0
+attack_range = 1.5
+attack_speed = 2.0
+damage = 3
+hp = 6
+max_hp = 6

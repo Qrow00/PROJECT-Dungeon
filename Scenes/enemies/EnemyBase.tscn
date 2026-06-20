@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0p7i2b3qf2ro"]
+
+[ext_resource type="Script" path="res://Scripts/enemies/EnemyBase.gd" id="1_gq41b"]
+[ext_resource type="Script" path="res://Scripts/enemies/StateMachine.gd" id="2_mqhqs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eibo4"]
+radius = 0.35
+height = 1.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p56sc"]
+radius = 10.0
+
+[node name="EnemyBase" type="CharacterBody3D"]
+script = ExtResource("1_gq41b")
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_eibo4")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+
+[node name="DetectionZone" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
+shape = SubResource("SphereShape3D_p56sc")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_mqhqs")
+initial_state = "idle"
+
+[node name="DestroyTimer" type="Timer" parent="."]
+one_shot = true
+wait_time = 2.0

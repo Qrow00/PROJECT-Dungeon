@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3o8qbe1ewtv6"]
+
+[ext_resource type="PackedScene" path="res://Scenes/enemies/EnemyBase.tscn" id="1_u4qkj"]
+
+[node name="Demon" instance=ExtResource("1_u4qkj")]
+walk_speed = 3.0
+run_speed = 5.0
+attack_range = 2.5
+attack_speed = 1.0
+damage = 8
+hp = 20
+max_hp = 20

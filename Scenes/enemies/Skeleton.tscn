@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbmna2yfwn4qn"]
+
+[ext_resource type="PackedScene" path="res://Scenes/enemies/EnemyBase.tscn" id="1_b2r4f"]
+
+[node name="Skeleton" instance=ExtResource("1_b2r4f")]
+walk_speed = 2.0
+run_speed = 3.5
+attack_range = 2.0
+attack_speed = 1.8
+damage = 6
+hp = 12
+max_hp = 12

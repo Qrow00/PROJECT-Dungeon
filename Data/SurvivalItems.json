@@ -1,0 +1,86 @@
+[
+  {
+    "id": "phoenix_feather",
+    "name": "Phoenix Feather",
+    "description": "Auto-revive once on death with 25% HP",
+    "type": "survival",
+    "rarity": "extremely_rare",
+    "price": 0,
+    "effect": "auto_revive",
+    "effect_value": 25,
+    "max_charges": 1,
+    "drop_chance": 0.02
+  },
+  {
+    "id": "blessed_amulet",
+    "name": "Blessed Amulet",
+    "description": "Negates the next fatal hit you would take",
+    "type": "survival",
+    "rarity": "very_rare",
+    "price": 80,
+    "effect": "negate_fatal",
+    "effect_value": 1,
+    "max_charges": 2,
+    "drop_chance": 0.05
+  },
+  {
+    "id": "escape_rope",
+    "name": "Escape Rope",
+    "description": "Instantly flee any combat encounter",
+    "type": "consumable",
+    "rarity": "rare",
+    "price": 35,
+    "effect": "auto_flee",
+    "effect_value": 1,
+    "max_charges": 1,
+    "drop_chance": 0.08
+  },
+  {
+    "id": "scroll_of_recall",
+    "name": "Scroll of Recall",
+    "description": "Return to floor 1 but keep all gear and gold",
+    "type": "consumable",
+    "rarity": "rare",
+    "price": 50,
+    "effect": "recall",
+    "effect_value": 1,
+    "max_charges": 1,
+    "drop_chance": 0.06
+  },
+  {
+    "id": "phantom_cloak",
+    "name": "Phantom Cloak",
+    "description": "Skip the next enemy encounter without penalty",
+    "type": "consumable",
+    "rarity": "rare",
+    "price": 30,
+    "effect": "skip_encounter",
+    "effect_value": 1,
+    "max_charges": 1,
+    "drop_chance": 0.1
+  },
+  {
+    "id": "heartstone",
+    "name": "Heartstone",
+    "description": "Permanently increases max HP by 10",
+    "type": "permanent",
+    "rarity": "very_rare",
+    "price": 60,
+    "effect": "increase_max_hp",
+    "effect_value": 10,
+    "max_charges": 1,
+    "drop_chance": 0.04
+  },
+  {
+    "id": "escape_shard",
+    "name": "Escape Shard",
+    "description": "A fragment of portal magic. Collect 3 to craft the Portal Stone and escape.",
+    "type": "quest",
+    "rarity": "legendary",
+    "price": 0,
+    "effect": "escape_shard",
+    "effect_value": 1,
+    "max_charges": 3,
+    "drop_chance": 0.0
+  }
+]

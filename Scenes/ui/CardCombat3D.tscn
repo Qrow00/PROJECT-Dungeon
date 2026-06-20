@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1s0b7boy46l0"]
+
+[ext_resource type="Script" path="res://Scripts/combat/CardCombat3D.gd" id="1_h2h2i"]
+
+[node name="CardCombat3D" type="Control"]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_h2h2i")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="EnemyContainer" type="HBoxContainer" parent="."]
+anchors_preset = 0
+anchor_top = 0.05
+anchor_right = 1.0
+offset_top = 0.0
+offset_bottom = 120.0
+alignment = 1
+
+[node name="NarrationLabel" type="Label" parent="."]
+anchors_preset = 0
+anchor_left = 0.1
+anchor_top = 0.2
+anchor_right = 0.9
+offset_top = 0.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.788, 0.663, 0.298, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+
+[node name="CombatLog" type="PanelContainer" parent="."]
+anchors_preset = 0
+anchor_left = 0.05
+anchor_top = 0.28
+anchor_right = 0.95
+anchor_bottom = 0.72
+theme_override_styles/panel = SubResource("StyleBoxFlat_resjm")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CombatLog"]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="CombatLog/ScrollContainer"]
+anchors_preset = 0
+anchor_right = 1.0
+
+[node name="ActionContainer" type="HBoxContainer" parent="."]
+anchors_preset = 0
+anchor_left = 0.1
+anchor_top = 0.78
+anchor_right = 0.9
+anchor_bottom = 0.9
+alignment = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_resjm"]
+bg_color = Color(0.05, 0.03, 0.02, 0.8)
+border_color = Color(0.24, 0.18, 0.12, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_top = 1
+border_width_bottom = 1

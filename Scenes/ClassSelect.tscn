@@ -1,0 +1,104 @@
+[gd_scene format=3]
+[ext_resource type="Script" path="res://Scripts/ClassSelect.gd" id="1"]
+
+[node name="ClassSelect" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.06, 0.04, 0.03, 1)
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_top = 0.12
+anchor_bottom = 0.88
+offset_left = -350.0
+offset_right = 350.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+horizontal_alignment = 1
+text = "CHOOSE YOUR CLASS"
+add_theme_color_override = { "font_color": Color(0.788, 0.659, 0.298, 1) }
+add_theme_font_size_override = { "font_size": 36 }
+
+[node name="ClassList" type="VBoxContainer" parent="Panel/VBoxContainer"]
+alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="Panel/VBoxContainer"]
+text = "Select a class to begin your journey..."
+add_theme_color_override = { "font_color": Color(0.8, 0.7, 0.6, 1) }
+add_theme_font_size_override = { "font_size": 16 }
+autowrap_mode = 2
+custom_minimum_size = Vector2(0, 80)
+
+[node name="StatBars" type="VBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+
+[node name="HPBar" type="ColorRect" parent="Panel/VBoxContainer/StatBars"]
+custom_minimum_size = Vector2(600, 20)
+color = Color(0.08, 0.03, 0.02, 0.8)
+
+[node name="HPBarFill" type="ColorRect" parent="Panel/VBoxContainer/StatBars/HPBar"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.6, 0.15, 0.1, 1)
+
+[node name="HPStatLabel" type="Label" parent="Panel/VBoxContainer/StatBars/HPBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "♥ 20"
+horizontal_alignment = 1
+vertical_alignment = 1
+add_theme_color_override = { "font_color": Color(1, 1, 1, 0.9) }
+add_theme_font_size_override = { "font_size": 12 }
+
+[node name="GoldBar" type="ColorRect" parent="Panel/VBoxContainer/StatBars"]
+custom_minimum_size = Vector2(600, 20)
+color = Color(0.08, 0.06, 0.02, 0.8)
+
+[node name="GoldBarFill" type="ColorRect" parent="Panel/VBoxContainer/StatBars/GoldBar"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.3
+anchor_bottom = 1.0
+color = Color(0.788, 0.659, 0.298, 1)
+
+[node name="GoldStatLabel" type="Label" parent="Panel/VBoxContainer/StatBars/GoldBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "✦ 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+add_theme_color_override = { "font_color": Color(1, 1, 1, 0.9) }
+add_theme_font_size_override = { "font_size": 12 }
+
+[node name="ButtonRow" type="HBoxContainer" parent="Panel/VBoxContainer"]
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer/ButtonRow"]
+text = "BACK"
+custom_minimum_size = Vector2(160, 45)
+
+[node name="StartButton" type="Button" parent="Panel/VBoxContainer/ButtonRow"]
+text = "ENTER"
+custom_minimum_size = Vector2(160, 45)

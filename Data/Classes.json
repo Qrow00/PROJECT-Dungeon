@@ -1,0 +1,50 @@
+[
+  {
+    "id": "warrior",
+    "name": "Warrior",
+    "description": "A battle-hardened veteran with high durability and weapon mastery.",
+    "max_hp": 28,
+    "starting_gold": 5,
+    "base_ac": 2,
+    "base_attack": 3,
+    "base_strength": 3,
+    "ability": "cleave",
+    "ability_desc": "Gains Cleave at level 1 — hits all enemies for reduced damage"
+  },
+  {
+    "id": "rogue",
+    "name": "Rogue",
+    "description": "A cunning shadow-dancer who avoids danger and finds extra gold.",
+    "max_hp": 18,
+    "starting_gold": 15,
+    "base_ac": 0,
+    "base_attack": 3,
+    "base_strength": 0,
+    "ability": "backstab",
+    "ability_desc": "Gains Backstab at level 1 — extra damage when target is distracted"
+  },
+  {
+    "id": "mage",
+    "name": "Mage",
+    "description": "A scholar of forbidden magic who sacrifices health for power.",
+    "max_hp": 14,
+    "starting_gold": 10,
+    "base_ac": -1,
+    "base_attack": 2,
+    "base_strength": -1,
+    "ability": "firebolt",
+    "ability_desc": "Gains Firebolt at level 1 — ranged 1d10 magic damage"
+  },
+  {
+    "id": "paladin",
+    "name": "Paladin",
+    "description": "A holy knight blessed with divine light and healing power.",
+    "max_hp": 24,
+    "starting_gold": 3,
+    "base_ac": 2,
+    "base_attack": 2,
+    "base_strength": 2,
+    "ability": "lay_on_hands",
+    "ability_desc": "Gains Lay on Hands at level 1 — heal 50% HP once per rest"
+  }
+]

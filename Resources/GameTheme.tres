@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3]
+
+[ext_resource type="FontFile" path="res://Assets/Fonts/Cinzel.ttf" id="1"]
+
+[resource]
+default_font = ExtResource("1")
+default_font_size = 16
+default_theme_item/colors/font_color = Color(0.831, 0.773, 0.659, 1)
+default_theme_item/colors/font_hover_color = Color(0.788, 0.659, 0.4, 1)
+default_theme_item/colors/font_pressed_color = Color(0.831, 0.773, 0.659, 1)
+default_theme_item/colors/font_disabled_color = Color(0.4, 0.35, 0.3, 0.5)

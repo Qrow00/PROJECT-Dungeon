@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://bom2rgry1mfqx"]
+
+[ext_resource type="Script" path="res://Scripts/dungeon/Room.gd" id="1_13xo8"]
+
+[sub_resource type="StandardMaterial3D" id="mat_floor"]
+albedo_color = Color(0.25, 0.2, 0.15, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="mat_wall"]
+albedo_color = Color(0.35, 0.25, 0.18, 1)
+roughness = 0.85
+
+[sub_resource type="StandardMaterial3D" id="mat_ceil"]
+albedo_color = Color(0.12, 0.08, 0.05, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_1qi4t"]
+size = Vector3(10, 0.2, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4fkr"]
+size = Vector3(10, 0.2, 14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5jmg6"]
+size = Vector3(0.3, 4.5, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2xw7a"]
+size = Vector3(0.3, 4.5, 14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gqlfk"]
+size = Vector3(0.3, 4.5, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3vvf"]
+size = Vector3(0.3, 4.5, 14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wl5hx"]
+size = Vector3(10.6, 4.5, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n3j2r"]
+size = Vector3(10.6, 4.5, 0.3)
+
+[node name="RestSite" type="Node3D"]
+script = ExtResource("1_13xo8")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_1qi4t")
+material_override = SubResource("mat_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_g4fkr")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+position = Vector3(0, 0.1, 0)
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="WallLeft" type="StaticBody3D" parent="Walls"]
+position = Vector3(-5.15, 2.25, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallLeft"]
+mesh = SubResource("BoxMesh_5jmg6")
+material_override = SubResource("mat_wall")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallLeft"]
+shape = SubResource("BoxShape3D_2xw7a")
+
+[node name="WallRight" type="StaticBody3D" parent="Walls"]
+position = Vector3(5.15, 2.25, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallRight"]
+mesh = SubResource("BoxMesh_gqlfk")
+material_override = SubResource("mat_wall")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallRight"]
+shape = SubResource("BoxShape3D_y3vvf")
+
+[node name="WallBack" type="StaticBody3D" parent="Walls"]
+position = Vector3(0, 2.25, -7.15)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallBack"]
+mesh = SubResource("BoxMesh_wl5hx")
+material_override = SubResource("mat_wall")
+
+[node name="Campfire" type="OmniLight3D" parent="."]
+position = Vector3(0, 0.5, 0)
+light_color = Color(1, 0.5, 0.15, 1)
+light_energy = 1.5
+omni_range = 8.0
+
+[node name="LootSpawn_0" type="Marker3D" parent="."]
+position = Vector3(3, 0, 3)

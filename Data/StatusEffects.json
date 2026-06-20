@@ -1,0 +1,64 @@
+[
+  {
+    "id": "poison",
+    "name": "Poison",
+    "description": "Deals damage over time",
+    "damage_per_turn": 2,
+    "duration": 3,
+    "icon": "☠",
+    "color": "#4a9c3f"
+  },
+  {
+    "id": "burn",
+    "name": "Burn",
+    "description": "Fire damage over time",
+    "damage_per_turn": 3,
+    "duration": 2,
+    "icon": "🔥",
+    "color": "#e25822"
+  },
+  {
+    "id": "armor",
+    "name": "Armor",
+    "description": "Reduces incoming damage",
+    "damage_reduction": 2,
+    "duration": 3,
+    "icon": "🛡",
+    "color": "#708090"
+  },
+  {
+    "id": "shield",
+    "name": "Shield",
+    "description": "Blocks the next instance of damage entirely",
+    "blocks": 1,
+    "duration": 99,
+    "icon": "✦",
+    "color": "#4fc3f7"
+  },
+  {
+    "id": "weakness",
+    "name": "Weakness",
+    "description": "Reduces weapon power",
+    "weapon_penalty": 3,
+    "duration": 2,
+    "icon": "▼",
+    "color": "#9e9e9e"
+  },
+  {
+    "id": "stun",
+    "name": "Stun",
+    "description": "Skip your next action",
+    "duration": 1,
+    "icon": "✕",
+    "color": "#ffd700"
+  },
+  {
+    "id": "regeneration",
+    "name": "Regeneration",
+    "description": "Heals over time",
+    "heal_per_turn": 2,
+    "duration": 3,
+    "icon": "♥",
+    "color": "#4caf50"
+  }
+]

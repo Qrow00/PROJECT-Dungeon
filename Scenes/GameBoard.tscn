@@ -1,0 +1,338 @@
+[gd_scene load_steps=4 format=3]
+[ext_resource type="Script" path="res://Scripts/GameBoard.gd" id="1"]
+[ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="2"]
+[ext_resource type="PackedScene" path="res://Scenes/world/GameWorld.tscn" id="3_pn35p"]
+
+[sub_resource type="ShaderMaterial" id="1"]
+resource_local_to_scene = true
+shader = ExtResource("2")
+shader_parameter/intensity = 0.5
+shader_parameter/darkness = 0.3
+
+[node name="GameBoard" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08, 0.05, 0.04, 1)
+
+[node name="GameWorldContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GameWorldContainer"]
+size = Vector2i(1152, 648)
+transparent_bg = true
+render_target_update_mode = 2
+
+[node name="GameWorld" parent="GameWorldContainer/SubViewport" instance=ExtResource("3_pn35p")]
+
+[node name="Vignette" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0)
+mouse_filter = 2
+material = SubResource("1")
+
+[node name="ThemeOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.3)
+mouse_filter = 2
+
+[node name="TransitionOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0)
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+
+;; === STATUS BAR (top) ===
+[node name="StatusBar" type="Control" parent="."]
+anchors_preset = 6
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 80.0
+
+[node name="HPBar" type="Panel" parent="StatusBar"]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 260.0
+offset_bottom = 30.0
+
+[node name="HPBarFill" type="ColorRect" parent="StatusBar/HPBar"]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_bottom = 1.0
+color = Color(0.25, 0.55, 0.2, 1)
+mouse_filter = 2
+
+[node name="HPLabel" type="Label" parent="StatusBar/HPBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "20/20"
+horizontal_alignment = 1
+vertical_alignment = 1
+add_theme_color_override = { "font_color": Color(1, 1, 1, 0.95) }
+add_theme_font_size_override = { "font_size": 12 }
+
+[node name="XPBar" type="Panel" parent="StatusBar"]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 33.0
+offset_right = 260.0
+offset_bottom = 53.0
+
+[node name="XPBarFill" type="ColorRect" parent="StatusBar/XPBar"]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_bottom = 1.0
+color = Color(0.2, 0.35, 0.65, 1)
+mouse_filter = 2
+
+[node name="XPLabel" type="Label" parent="StatusBar/XPBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Lv.1 (0/10 XP)"
+horizontal_alignment = 1
+vertical_alignment = 1
+add_theme_color_override = { "font_color": Color(1, 1, 1, 0.95) }
+add_theme_font_size_override = { "font_size": 11 }
+
+[node name="FloorInfo" type="Label" parent="StatusBar"]
+anchors_preset = 0
+offset_left = 270.0
+offset_top = 5.0
+text = "F1"
+add_theme_color_override = { "font_color": Color(0.788, 0.659, 0.298, 1) }
+add_theme_font_size_override = { "font_size": 16 }
+
+[node name="ClassInfo" type="Label" parent="StatusBar"]
+anchors_preset = 0
+offset_left = 270.0
+offset_top = 25.0
+text = "Adventurer"
+add_theme_color_override = { "font_color": Color(0.7, 0.6, 0.5, 1) }
+add_theme_font_size_override = { "font_size": 12 }
+
+[node name="WeaponInfo" type="Label" parent="StatusBar"]
+anchors_preset = 0
+offset_left = 400.0
+offset_top = 5.0
+text = "No weapon"
+add_theme_color_override = { "font_color": Color(0.7, 0.6, 0.5, 1) }
+add_theme_font_size_override = { "font_size": 14 }
+
+[node name="GoldInfo" type="Label" parent="StatusBar"]
+anchors_preset = 0
+offset_left = 400.0
+offset_top = 25.0
+text = "0g"
+add_theme_color_override = { "font_color": Color(0.788, 0.659, 0.298, 1) }
+add_theme_font_size_override = { "font_size": 14 }
+
+[node name="StatusIcons" type="HBoxContainer" parent="StatusBar"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 55.0
+offset_right = 120.0
+offset_bottom = 78.0
+alignment = 1
+
+[node name="ShardInfo" type="Label" parent="StatusBar"]
+anchors_preset = 0
+anchor_right = 1.0
+offset_left = -200.0
+offset_right = -10.0
+offset_top = 5.0
+text = "Shards: 0/3"
+horizontal_alignment = 2
+add_theme_color_override = { "font_color": Color(0.5, 0.3, 0.8, 1) }
+add_theme_font_size_override = { "font_size": 14 }
+
+;; === EXPLORE PANEL ===
+[node name="ExplorePanel" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RoomLabel" type="Label" parent="ExplorePanel"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 95.0
+offset_right = 200.0
+text = "Monster Den"
+horizontal_alignment = 1
+add_theme_color_override = { "font_color": Color(0.788, 0.659, 0.298, 1) }
+add_theme_font_size_override = { "font_size": 24 }
+
+[node name="FloorLabel" type="Label" parent="ExplorePanel"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 125.0
+offset_right = 200.0
+text = "Floor 1 - Dark Caverns"
+horizontal_alignment = 1
+add_theme_color_override = { "font_color": Color(0.6, 0.5, 0.4, 1) }
+add_theme_font_size_override = { "font_size": 14 }
+
+[node name="DescLabel" type="Label" parent="ExplorePanel"]
+anchors_preset = 0
+anchor_left = 0.05
+anchor_right = 0.95
+offset_left = 0.0
+offset_top = 155.0
+offset_right = 0.0
+offset_bottom = 210.0
+text = "You hear growling ahead..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+add_theme_color_override = { "font_color": Color(0.8, 0.7, 0.6, 1) }
+add_theme_font_size_override = { "font_size": 16 }
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="ExplorePanel"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -250.0
+offset_right = -100.0
+offset_bottom = -10.0
+
+;; === COMBAT PANEL ===
+[node name="CombatPanel" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+visible = false
+
+[node name="CombatBg" type="ColorRect" parent="CombatPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.5)
+mouse_filter = 2
+
+[node name="EnemyContainer" type="HBoxContainer" parent="CombatPanel"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 10.0
+offset_right = 300.0
+offset_bottom = 140.0
+alignment = 1
+
+[node name="CombatNarration" type="Label" parent="CombatPanel"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 145.0
+offset_right = 350.0
+offset_bottom = 175.0
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+add_theme_color_override = { "font_color": Color(0.9, 0.7, 0.5, 0.8) }
+add_theme_font_size_override = { "font_size": 12 }
+
+[node name="CombatLog" type="Panel" parent="CombatPanel"]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 180.0
+offset_right = 0.0
+offset_bottom = 55.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CombatPanel/CombatLog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+
+[node name="VBox" type="VBoxContainer" parent="CombatPanel/CombatLog/ScrollContainer"]
+size_flags_horizontal = 1
+
+[node name="ActionContainer" type="HBoxContainer" parent="CombatPanel"]
+anchors_preset = 16
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -50.0
+offset_right = 0.0
+offset_bottom = 0.0
+alignment = 1
+
+;; === LOOT PANEL ===
+[node name="LootPanel" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+visible = false
+
+[node name="LootBg" type="ColorRect" parent="LootPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.6)
+mouse_filter = 2
+
+[node name="LootLabel" type="Label" parent="LootPanel"]
+anchors_preset = 0
+anchor_left = 0.1
+anchor_right = 0.9
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+text = "Loot collected!"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 1
+add_theme_color_override = { "font_color": Color(0.788, 0.659, 0.298, 1) }
+add_theme_font_size_override = { "font_size": 16 }
+
+[node name="LootItemsContainer" type="VBoxContainer" parent="LootPanel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_top = -20.0
+offset_bottom = 40.0

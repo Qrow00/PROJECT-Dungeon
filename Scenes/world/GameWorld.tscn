@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcl3g0bcr6a5d"]
+
+[ext_resource type="Script" path="res://Scripts/GameWorld.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/combat/CombatManager3D.gd" id="2"]
+
+[sub_resource type="Environment" id="Environment_3wqfk"]
+ambient_light_color = Color(0, 0, 0, 1)
+ambient_light_energy = 0.0
+ambient_light_sky_contribution = 0.0
+background_mode = 1
+background_color = Color(0, 0, 0, 1)
+glow_enabled = false
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.05, 0.03, 0.02, 1)
+fog_light_energy = 0.0
+fog_density = 0.015
+fog_height_density = 0.0
+fog_aerial_perspective = 0.0
+
+[node name="GameWorld" type="Node3D"]
+script = ExtResource("1")
+
+[node name="DirectionalLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, -0.353, 0.353, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 0, 0)
+shadow_enabled = false
+light_color = Color(1, 1, 1, 1)
+light_energy = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3wqfk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
+fov = 75.0
+near = 0.05
+far = 100.0
+
+[node name="CombatManager" type="Node3D" parent="."]
+script = ExtResource("2")

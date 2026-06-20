@@ -1,0 +1,82 @@
+[
+  {
+    "id": "health_potion_small",
+    "name": "Minor Health Potion",
+    "description": "Heal 5 HP",
+    "type": "consumable",
+    "effect": "heal",
+    "effect_value": 5,
+    "cost": 8,
+    "icon": "♥"
+  },
+  {
+    "id": "health_potion_large",
+    "name": "Major Health Potion",
+    "description": "Heal 12 HP",
+    "type": "consumable",
+    "effect": "heal",
+    "effect_value": 12,
+    "cost": 18,
+    "icon": "♥♥"
+  },
+  {
+    "id": "shield_potion",
+    "name": "Barrier Potion",
+    "description": "Grants Shield (blocks next damage)",
+    "type": "consumable",
+    "effect": "shield",
+    "effect_value": 1,
+    "cost": 12,
+    "icon": "✦"
+  },
+  {
+    "id": "strength_oil",
+    "name": "Strength Oil",
+    "description": "+3 weapon power for 2 fights",
+    "type": "consumable",
+    "effect": "strength",
+    "effect_value": 3,
+    "cost": 15,
+    "icon": "↑"
+  },
+  {
+    "id": "weapon_upgrade",
+    "name": "Weapon Forge",
+    "description": "Permanently +1 to all weapon damage",
+    "type": "upgrade",
+    "effect": "weapon_upgrade",
+    "effect_value": 1,
+    "cost": 25,
+    "icon": "⚔"
+  },
+  {
+    "id": "max_hp_up",
+    "name": "Heart Vessel",
+    "description": "Permanently +5 max HP",
+    "type": "upgrade",
+    "effect": "max_hp",
+    "effect_value": 5,
+    "cost": 20,
+    "icon": "❤"
+  },
+  {
+    "id": "antidote",
+    "name": "Antidote",
+    "description": "Cure all poison and burn",
+    "type": "consumable",
+    "effect": "cure",
+    "effect_value": 0,
+    "cost": 10,
+    "icon": "✦"
+  },
+  {
+    "id": "dungeon_map",
+    "name": "Dungeon Map",
+    "description": "See the next room's cards before drawing",
+    "type": "consumable",
+    "effect": "scry",
+    "effect_value": 0,
+    "cost": 14,
+    "icon": "🗺"
+  }
+]
