@@ -5,6 +5,7 @@ var light_node: OmniLight3D
 var base_energy: float = 1.0
 
 func _ready():
+	flicker_time = randf() * 100.0
 	for child in get_children():
 		if child is OmniLight3D:
 			light_node = child
